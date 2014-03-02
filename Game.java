@@ -5,6 +5,7 @@ import java.io.*;
  * This class controls the game mechanics
  * 
  * @author Steve Amatangelo
+>>>>>>> d7fcd592d9d558481d8931b4076d835e9cfd53c3
  * @author Alexis Dani
  * @author Trever Overbeck
  * @author Zach Hill
@@ -14,15 +15,21 @@ public class Game {
 	private String currentLocation;
 	private HashMap<String, ArrayList<String>> map;
 	private HashMap<String, String> description;
+
+	private HashMap<String, String> itemDescriptions;
 	private Actions actions;
 
-
-	public Game(Actions act) throws FileNotFoundException {
+	public Game(Actions act) throws FileNotFoundException{
 		//implement hashmaps here
-	/*	implementMap();
-		implementDescription();*/
+		//implementMap();
+		//implementDescription();
+		implementItemDescriptions();
 		currentLocation = "misnomer";
-
+		actions = act;
+	}
+	
+	public Actions getActions(){
+		return this.actions;
 	}
 	
 	public void implementMap() throws FileNotFoundException {
@@ -43,11 +50,25 @@ public class Game {
 	
 	public void implementDescription() throws FileNotFoundException {
 		description = new HashMap<String, String>();
-		Scanner in = new Scanner(new File("Descriptions"));
+		Scanner in = new Scanner(new File("RoomDescriptions"));
 		
 		while(in.hasNextLine()) {
 			String key = in.next();
 			String value = in.nextLine();
+			
+			description.put(key, value);
+		}
+	}
+	
+	public void implementItemDescriptions() throws FileNotFoundException {
+		itemDescriptions = new HashMap<String, String>();
+		Scanner in = new Scanner(new File("ItemDescriptions"));
+		
+		while(in.hasNextLine()) {
+			String key = in.next();
+			String value = in.nextLine();
+			
+			itemDescriptions.put(key, value);
 		}
 	}
 

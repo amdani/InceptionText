@@ -17,16 +17,13 @@ public class Actions implements KeyListener {
 	private String input;
 	private String action;
 	private JLabel label;
-	private JLabel health;
 	private HashMap<String, Integer> keys;
 	private Game gameref;
-	private Player playa;
+	private TextUI app;
 	
-	public Actions(Player player) throws FileNotFoundException{
-		
+	public Actions(TextUI text) throws FileNotFoundException{
+		app = text;
 		gameref = new Game(this);
-		playa = player;
-
 		
 		keys = new HashMap<String, Integer>();
 		
@@ -38,6 +35,10 @@ public class Actions implements KeyListener {
 		}
 		in.close();
 		
+	}
+	
+	public Game getGameRef() {
+		return this.gameref;
 	}
 	
 	public void addTextField(JTextField text){
@@ -57,27 +58,21 @@ public class Actions implements KeyListener {
 		label.setText(text);
 	}
 	
-	public void addHealthLabel(JLabel labelRef){
-		health = labelRef;
+	public void clearTextBox() {
+		text.setText("");
 	}
-
+	
 	public void getAction(){
-		
+		action = "";
 		for(String command : keys.keySet()){
 			if (input.contains(command)){
+				input = command;
 				action = command;
 			}
 		}
 		
 	}
 	
-	//update UI
-	public void update(){
-		//update health
-		String healthText = "HP: " + playa.getHealth();
-		health.setText(healthText);
-	}
-
 	public boolean isDirection(){
 		if (keys.get(action) == 1){
 			return true;
@@ -140,16 +135,47 @@ public class Actions implements KeyListener {
 			input = text.getText();
 			input.toLowerCase();
 			handleInput(input);
-			//update UI here
+			updateUI();
+			//include deleting text in text box
 		}
 		
 	}
 	
-	public void handleInput(String input) {
+	public void updateUI() {
+		clearTextBox();
 		
 	}
-
-
+	
+	public void handleInput(String input) {
+		getAction();
+		
+		if(input.contains("use")) { 
+			
+		}
+		else if(keys.containsKey(action)) { 
+			if(isDirection() || isClimb()) {
+				gameref.move(input);
+			}
+			else if(isSearch()) {
+				
+			}
+			else if(isItemCollection()) {
+				
+			}
+			else if(isFight()) {
+				
+			}
+			else if(isInventory()) {
+				app.getPlayer().getInventory();
+			}
+			else if(isDrink()) {
+				
+			}
+		}
+		else {
+			setLabelText("Command Not Recognized");
+		}
+	}
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
