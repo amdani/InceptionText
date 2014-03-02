@@ -1,4 +1,4 @@
-package game;
+package Game;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,6 +17,7 @@ public class Actions implements KeyListener {
 	private String input;
 	private String action;
 	private JLabel label;
+	private JLabel health;
 	private HashMap<String, Integer> keys;
 	private Game gameref;
 
@@ -51,12 +52,17 @@ public class Actions implements KeyListener {
 		label = labelRef;
 	}
 	
+	public void addHeaalthLabel(JLabel labelRef){
+		health = labelRef;
+	}
+	
 	/**
 	 * I added this in, make sure it's in other methods.
 	 * @param text
 	 */
 	public void setLabelText(String text) {
-		label.setText(text);
+		String tempText = "<html>" + text + "</html>";
+		label.setText(tempText);
 	}
 	
 	public void clearTextBox() {
@@ -76,6 +82,7 @@ public class Actions implements KeyListener {
 	
 	public boolean isDirection(){
 		if (keys.get(action) == 1){
+			input = action;
 			return true;
 		}
 		return false;
@@ -83,6 +90,7 @@ public class Actions implements KeyListener {
 	
 	public boolean isClimb(){
 		if (keys.get(action) == 2){
+			input = action;
 			return true;
 		}
 		return false;
@@ -144,7 +152,7 @@ public class Actions implements KeyListener {
 	
 	public void updateUI() {
 		clearTextBox();
-		
+		app.updateHealth();
 	}
 	
 	public void handleInput(String input) {

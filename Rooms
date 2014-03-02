@@ -27,8 +27,7 @@
  parking1 0 road13 null sidewalk9 rozaEntrance null null
  pPoint 0 portage null road12 null null null
  portage 0 null null pPoint null null null
- //mub
-mubEntrance 0 sidewalk1 null bookStore hall1 lobby1 foodCourtSeating
+ mubEntrance 0 sidewalk1 null bookStore hall1 lobby1 foodCourtSeating
  bookstore 0 mubEntrance null null null null null
  hall1 0 studentOrgs mubEntrance null null null null
  studentOrgs 0 null null hall1 null null null
@@ -37,7 +36,6 @@ mubEntrance 0 sidewalk1 null bookStore hall1 lobby1 foodCourtSeating
  hall2 0 null null null bowlingAlley foodCourtSeating null
  bowlingAlley 0 null hall2 null null null null
  lobby1 0 null null null ballroom null mubEntrance
- //dhh
  dhhEntrance 0 null frontDesk1 walkerLawn dinningHall1 misnomer hall3
  dinningHall1 0 null dhhEntrance null dhhWEntrance null null
  dhhWEntrance 0 null dinningHall1 null m&mEntrance southPark kitchenette
@@ -57,7 +55,6 @@ mubEntrance 0 sidewalk1 null bookStore hall1 lobby1 foodCourtSeating
  attic 0 null middleEarth null null null southPark
  middleEarth 0 null groundZero null attic null misnomer
  groundZero 0 null null null middleEarth null thermo2
- //wads
  wWads 0 road6 null null grass null wmtuLounge
  dinningHall2 0 null frontDesk2 null null null null
  wadsEntrance 0 road7 null frontDesk2 null null null
@@ -67,18 +64,15 @@ mubEntrance 0 sidewalk1 null bookStore hall1 lobby1 foodCourtSeating
  wmtuLounge 0 wmtu hall5 null null wWads null
  hall5 0 cafe null null wmtuLounge frontDesk2 null
  cafe 0 null null hall5 null null null
- //fisher
  hall6 0 f101 eFisherEntrance f125 rekhiEntrance null null
  f101 0 null null hall6 null null null
  f125 0 hall6 null null null null null
  eFisherEntrance 0 sidewalk5 f135 road5 hall6 null null
  f135 0 null parking2 null eFisherEntrance null null
- //rekhi
  rekhiEntrance 0 r101 hall6 hall7 gardenPath null null
  r101 0 null null rekhiEntrance null null null
  hall7 0 rekhiEntrance null null r112 null null
  r112 0 null hall7 null null null null
- //mcnair
  mcnairHill 0 road9 eCourtyard null eWads null null
  mcnairLounge 0 null hall8 eCourtyard mcnairHill null null
  eCourtyard 0 mcnairLounge wCourtyard null mcnairHill null null
@@ -86,21 +80,16 @@ mubEntrance 0 sidewalk1 null bookStore hall1 lobby1 foodCourtSeating
  hall8 0 null dinningHall3 null mcnairLounge null null
  dinningHall3 0 null null wCourtyard hall8 null null
  mcnairDorms 0 wCourtyard null null null null null
- //library
  library 0 sidewalk2 gardenPath studyRoom null null null
  studyRoom 0 library null road2 null null null
  gardenPath 0 sidewalk3 rekhiEntrance road3 library null null
- //hamar house
  parking2 0 sidewalk6 broomball road6 f135 null null
  hamar 0 null null parking2 null null null
- //roza
  rozaEntrance 0 road12 parking1 sidewalk8 auditorium null null
  auditorium 0 null rozaEntrance null null null null
- //m&m
  hall9 0 null dhhWEntrance u115 dSidewalk null null
  u115 0 hall9 null null null null null
- //dillman - dow - eerc
- dSidewalk 0 null hall9 sidewalk5 dillmanEntrance null null
+ dSidewalk 0 null hall9 sidewalk5 dillEntrance null null
  dillEntrance 0 hall10 dSidewalk null dill101 null null
  dill101 0 null dillEntrance null null null null
  hall10 0 null null dillEntrance hall11 null null
@@ -112,7 +101,6 @@ mubEntrance 0 sidewalk1 null bookStore hall1 lobby1 foodCourtSeating
  hall12 0 eercLobby null eercEntrance null null null
  eercEntrance 0 hall12 dowCourtyard sidewalk3 null null null
  eercSidewalk 0 null eercLobby sidewalk2 null null null
- //meem
  meemEntrance 0 meemLobby null sidewalk1 null null null
  meemLobby 0 null null meemEntrance elevator null null
  elevator1 0 null meemLobby null null elevator2 null

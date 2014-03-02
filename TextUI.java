@@ -1,4 +1,4 @@
-package game;
+package Game;
 
 import java.util.*;
 import java.awt.*;
@@ -43,7 +43,7 @@ public class TextUI extends JFrame{
 		response.setVerticalAlignment(JLabel.TOP);
 		Font font = new Font("Times", Font.PLAIN, 30);
 		response.setFont(font);
-		response.setText("Enter your name");
+		response.setText("<html>" + ctrl.getGameRef().getDescription(ctrl.getGameRef().getCurrentLocation()) + "</html>");
 		c.gridx = 0;
 		c.gridy = 0;
 		c.weighty = 1;
@@ -54,7 +54,9 @@ public class TextUI extends JFrame{
 		health = new JLabel();
 		String textLbl = "HP: " + playa.getHealth();
 		health.setText(textLbl);
-		
+		c.gridx = 1;
+		c.gridy = 0;
+		pane.add(health, c);
 		
 		// add JTextField
 		JTextField commandBox = new JTextField();
@@ -67,6 +69,11 @@ public class TextUI extends JFrame{
 		pane.add(commandBox, c);
 		ctrl.addTextField(commandBox);
 		
+	}
+	
+	public void updateHealth(){
+		String textLbl = "HP: " + playa.getHealth();
+		health.setText(textLbl);
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
