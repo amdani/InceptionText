@@ -19,12 +19,12 @@ public class Game {
 	private Actions actions;
 
 	public Game(Actions act) throws FileNotFoundException{
-		//implement hashmaps here
-		//implementMap();
-		//implementDescription();
-		implementItemDescriptions();
-		currentLocation = "misnomer";
+		currentLocation = "eercLobby";
 		actions = act;
+		//implement hashmaps here
+		implementMap();
+		implementDescription();
+		implementItemDescriptions();
 	}
 	
 	public Actions getActions(){
@@ -45,6 +45,7 @@ public class Game {
 			
 			map.put(key,  info);
 		}
+		in.close();
 	}
 	
 	public void implementDescription() throws FileNotFoundException {
@@ -57,6 +58,7 @@ public class Game {
 			String value = in.nextLine();
 			description.put(key, value);
 		}
+		in.close();
 	}
 	
 	public void implementItemDescriptions() throws FileNotFoundException {
@@ -69,6 +71,7 @@ public class Game {
 			
 			itemDescriptions.put(key, value);
 		}
+		in.close();
 	}
 
 	public void setCurrentLocation(String loc) {
@@ -89,6 +92,10 @@ public class Game {
 			int arrayLocation = direction(dir);
 			ArrayList<String> info = map.get(currentLocation);
 			setCurrentLocation(info.get(arrayLocation));
+			displayDiscription(currentLocation);
+		}
+		else {
+			displayDiscription("You can't move that way");
 		}
 	}
 	
@@ -107,6 +114,7 @@ public class Game {
 			return false;
 		}
 
+		System.out.println(currentLocation + " " + arrayLocation);
 		//checks if there is something in that location value
 		if(info.get(arrayLocation) == null) {
 			return false;
@@ -116,6 +124,9 @@ public class Game {
 		}
 	}
 
+	public void displayDiscription(String str) {
+		actions.setLabelText(getDescription(str));
+	}
 
 
 	public int direction(String direction) {
@@ -123,22 +134,22 @@ public class Game {
 
 		//set arrayLocation to corresponding value in the map String[]
 		if(direction.equals("north")) {
-			return 1;
+			return 0;
 		}
 		else if(direction.equals("east")) {
-			return 2;
+			return 1;
 		}
 		else if(direction.equals("south")) {
-			return 3;
+			return 2;
 		}
 		else if(direction.equals("west")) {
-			return 4;
+			return 3;
 		}
 		else if(direction.equals("up")) {
-			return 5;
+			return 4;
 		}
 		else if(direction.equals("down")) {
-			return 6;
+			return 5;
 		}
 		else {
 			return -1;

@@ -56,7 +56,8 @@ public class Actions implements KeyListener {
 	 * @param text
 	 */
 	public void setLabelText(String text) {
-		label.setText(text);
+		String tempText = "<html>" + text + "</html>";
+		label.setText(tempText);
 	}
 	
 	public void clearTextBox() {

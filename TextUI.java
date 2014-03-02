@@ -43,7 +43,7 @@ public class TextUI extends JFrame{
 		response.setVerticalAlignment(JLabel.TOP);
 		Font font = new Font("Times", Font.PLAIN, 30);
 		response.setFont(font);
-		response.setText("Enter your name");
+		response.setText("<html>" + ctrl.getGameRef().getDescription(ctrl.getGameRef().getCurrentLocation()) + "</html>");
 		c.gridx = 0;
 		c.gridy = 0;
 		c.weighty = 1;
