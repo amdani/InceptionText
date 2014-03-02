@@ -27,7 +27,7 @@
  parking1 0 road13 null sidewalk9 rozaEntrance null null
  pPoint 0 portage null road12 null null null
  portage 0 null null pPoint null null null
-mubEntrance 0 sidewalk1 null bookStore hall1 lobby1 foodCourtSeating
+ mubEntrance 0 sidewalk1 null bookStore hall1 lobby1 foodCourtSeating
  bookstore 0 mubEntrance null null null null null
  hall1 0 studentOrgs mubEntrance null null null null
  studentOrgs 0 null null hall1 null null null

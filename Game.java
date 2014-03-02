@@ -113,8 +113,11 @@ public class Game {
 		if(arrayLocation == -1) {
 			return false;
 		}
+		
+		if(dir.equals("null")) {
+			return false;
+		}
 
-		System.out.println(currentLocation + " " + arrayLocation);
 		//checks if there is something in that location value
 		if(info.get(arrayLocation) == null) {
 			return false;

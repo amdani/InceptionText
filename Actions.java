@@ -141,7 +141,7 @@ public class Actions implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		if(arg0.getKeyChar() == KeyEvent.VK_ENTER){
-			input = text.getText();
+			input = text.getText().toLowerCase();
 			input.toLowerCase();
 			handleInput(input);
 			updateUI();
