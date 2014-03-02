@@ -17,6 +17,7 @@ public class Actions implements KeyListener {
 	private String input;
 	private String action;
 	private JLabel label;
+	private JLabel health;
 	private HashMap<String, Integer> keys;
 	private Game gameref;
 
@@ -49,6 +50,10 @@ public class Actions implements KeyListener {
 	
 	public void addLabel(JLabel labelRef){
 		label = labelRef;
+	}
+	
+	public void addHeaalthLabel(JLabel labelRef){
+		health = labelRef;
 	}
 	
 	/**
@@ -145,7 +150,7 @@ public class Actions implements KeyListener {
 	
 	public void updateUI() {
 		clearTextBox();
-		
+		app.updateHealth();
 	}
 	
 	public void handleInput(String input) {
