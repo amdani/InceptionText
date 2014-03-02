@@ -1,4 +1,4 @@
-package game;
+package Game;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -141,7 +141,7 @@ public class Actions implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		if(arg0.getKeyChar() == KeyEvent.VK_ENTER){
-			input = text.getText().toLowerCase();
+			input = text.getText();
 			input.toLowerCase();
 			handleInput(input);
 			updateUI();

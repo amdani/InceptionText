@@ -1,4 +1,4 @@
-package game;
+package Game;
 import java.util.*;
 import java.io.*;
 /**
@@ -26,15 +26,15 @@ public class Game {
 		implementDescription();
 		implementItemDescriptions();
 	}
-	
+
 	public Actions getActions(){
 		return this.actions;
 	}
-	
+
 	public void implementMap() throws FileNotFoundException {
 		map = new HashMap<String, ArrayList<String>>();
 		Scanner in = new Scanner(new File("Rooms"));
-		
+
 		while(in.hasNextLine()) {
 			String key = in.next();
 			int numElements = in.nextInt() + 6;
@@ -42,17 +42,17 @@ public class Game {
 			for(int i = 0; i < numElements; i++) {
 				info.add(in.next());
 			}
-			
+
 			map.put(key,  info);
 		}
 		in.close();
 	}
-	
+
 	public void implementDescription() throws FileNotFoundException {
 		description = new HashMap<String, String>();
 
 		Scanner in = new Scanner(new File("RoomDescriptions"));
-		
+
 		while(in.hasNextLine()) {
 			String key = in.next();
 			String value = in.nextLine();
@@ -60,15 +60,15 @@ public class Game {
 		}
 		in.close();
 	}
-	
+
 	public void implementItemDescriptions() throws FileNotFoundException {
 		itemDescriptions = new HashMap<String, String>();
 		Scanner in = new Scanner(new File("ItemDescriptions"));
-		
+
 		while(in.hasNextLine()) {
 			String key = in.next();
 			String value = in.nextLine();
-			
+
 			itemDescriptions.put(key, value);
 		}
 		in.close();
@@ -86,7 +86,7 @@ public class Game {
 	public String getDescription(String key) {
 		return description.get(key);
 	}
-	
+
 	public void move(String dir) {
 		if(canMove(dir)) {
 			int arrayLocation = direction(dir);
@@ -95,10 +95,10 @@ public class Game {
 			displayDiscription(currentLocation);
 		}
 		else {
-			displayDiscription("You can't move that way");
+			displayDiscription("null");
 		}
 	}
-	
+
 	/**
 	 * Checks if the direction is a valid location
 	 * 
@@ -110,16 +110,13 @@ public class Game {
 		ArrayList<String> info = map.get(currentLocation);
 
 		//error handling
-		if(arrayLocation == -1) {
-			return false;
-		}
-		
-		if(dir.equals("null")) {
+		if(arrayLocation < 0 || arrayLocation > info.size()) {
 			return false;
 		}
 
+		System.out.println(currentLocation + " " + arrayLocation);
 		//checks if there is something in that location value
-		if(info.get(arrayLocation) == null) {
+		if(info.get(arrayLocation).equals("null")) {
 			return false;
 		}
 		else {
@@ -128,7 +125,12 @@ public class Game {
 	}
 
 	public void displayDiscription(String str) {
-		actions.setLabelText(getDescription(str));
+		if(str.equals("null")) {
+			actions.setLabelText("You can't go that way.");
+		}
+		else {
+			actions.setLabelText(getDescription(str));
+		}
 	}
 
 
