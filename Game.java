@@ -180,6 +180,34 @@ public class Game {
 		else {
 			return -1;
 		}
+	}
 
+	/**
+	 * Yall will need to do something in calling of this method so dat it sends just the name of 
+	 * the item but I'm so fucking tired right now, I literally can't even think anymore. 
+	 * Good Night!
+	 * 
+	 * @param item
+	 */
+	public void getItem(String item) {
+		ArrayList<String> info = map.get(currentLocation);
+		if(info.size() > 6 && isItemAvailable(item)) {
+			actions.getApp().getPlayer().addInventory(item, 1);
+			actions.setLabelText("You picked up " + item);
+		}
+		else {
+			actions.setLabelText("Object unavailable.");
+		}
+	}
+
+	public boolean isItemAvailable(String item) {
+		ArrayList<String> info = map.get(currentLocation);
+		for(String s: info) {
+			if(item.contains(s)){
+				return true;
+			}
+		}
+
+		return false;
 	}
 }

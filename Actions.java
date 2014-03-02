@@ -20,7 +20,6 @@ public class Actions implements KeyListener {
 	private JLabel health;
 	private HashMap<String, Integer> keys;
 	private Game gameref;
-
 	private TextUI app;
 	
 	public Actions(TextUI text) throws FileNotFoundException{
@@ -37,6 +36,10 @@ public class Actions implements KeyListener {
 		}
 		in.close();
 		
+	}
+	
+	public TextUI getApp() {
+		return app;
 	}
 	
 	public Game getGameRef() {
