@@ -133,22 +133,22 @@ public class Game {
 		direction = direction.toLowerCase();
 
 		//set arrayLocation to corresponding value in the map String[]
-		if(direction.equals("north")) {
+		if(direction.contains("north")) {
 			return 0;
 		}
-		else if(direction.equals("east")) {
+		else if(direction.contains("east")) {
 			return 1;
 		}
-		else if(direction.equals("south")) {
+		else if(direction.contains("south")) {
 			return 2;
 		}
-		else if(direction.equals("west")) {
+		else if(direction.contains("west")) {
 			return 3;
 		}
-		else if(direction.equals("up")) {
+		else if(direction.contains("up")) {
 			return 4;
 		}
-		else if(direction.equals("down")) {
+		else if(direction.contains("down")) {
 			return 5;
 		}
 		else {

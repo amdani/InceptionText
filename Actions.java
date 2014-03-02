@@ -82,6 +82,7 @@ public class Actions implements KeyListener {
 	
 	public boolean isDirection(){
 		if (keys.get(action) == 1){
+			input = action;
 			return true;
 		}
 		return false;
@@ -89,6 +90,7 @@ public class Actions implements KeyListener {
 	
 	public boolean isClimb(){
 		if (keys.get(action) == 2){
+			input = action;
 			return true;
 		}
 		return false;
