@@ -65,6 +65,10 @@ public class Actions implements KeyListener {
 		label.setText(tempText);
 	}
 	
+	public String getLabelText(){
+		return label.getText();
+	}
+	
 	public void clearTextBox() {
 		text.setText("");
 	}
@@ -153,6 +157,7 @@ public class Actions implements KeyListener {
 	public void updateUI() {
 		clearTextBox();
 		app.updateHealth();
+		gameref.enemy();
 	}
 	
 	public void handleInput(String input) {

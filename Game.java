@@ -1,4 +1,4 @@
-package Game;
+package game;
 import java.util.*;
 import java.io.*;
 /**
@@ -130,6 +130,27 @@ public class Game {
 		}
 		else {
 			actions.setLabelText(getDescription(str));
+		}
+	}
+
+	public boolean randomEncounter(){
+		double chance = Math.random();
+		System.out.println(chance);
+		if (chance >= .95){
+			return true;
+		}
+		return false;
+	}
+
+	public void enemy(){
+		if(randomEncounter()){
+			double knightChance = Math.random();
+			if (knightChance >= .75){
+				actions.setLabelText(actions.getLabelText() + "There is a cheese knight in here.");
+			}
+			else {
+				actions.setLabelText(actions.getLabelText() + "There is a cheeseless in here.");
+			}
 		}
 	}
 
