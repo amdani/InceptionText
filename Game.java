@@ -4,7 +4,8 @@ import java.io.*;
 /**
  * This class controls the game mechanics
  * 
- * @author Steve Amatangello
+ * @author Steve Amatangelo
+>>>>>>> d7fcd592d9d558481d8931b4076d835e9cfd53c3
  * @author Alexis Dani
  * @author Trever Overbeck
  * @author Zach Hill
