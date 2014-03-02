@@ -54,7 +54,9 @@ public class TextUI extends JFrame{
 		health = new JLabel();
 		String textLbl = "HP: " + playa.getHealth();
 		health.setText(textLbl);
-		
+		c.gridx = 1;
+		c.gridy = 0;
+		pane.add(health, c);
 		
 		// add JTextField
 		JTextField commandBox = new JTextField();
@@ -67,6 +69,11 @@ public class TextUI extends JFrame{
 		pane.add(commandBox, c);
 		ctrl.addTextField(commandBox);
 		
+	}
+	
+	public void updateHealth(){
+		String textLbl = "HP: " + playa.getHealth();
+		health.setText(textLbl);
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
