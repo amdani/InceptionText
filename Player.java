@@ -35,11 +35,11 @@ public class Player {
 	}
 
 	public void getInventory() {
-		String invent = "";
+		String invent = "<html>";
 		for(String key: inventory.keySet()) {
 			invent += key + "<br>";
 		}
-		invent += "";
+		invent += "</html>";
 
 		actions.setLabelText(invent);
 	}
