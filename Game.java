@@ -136,7 +136,7 @@ public class Game {
 	public boolean randomEncounter(){
 		double chance = Math.random();
 		System.out.println(chance);
-		if (chance >= .95){
+		if (chance >= .90){
 			return true;
 		}
 		return false;
@@ -146,10 +146,10 @@ public class Game {
 		if(randomEncounter()){
 			double knightChance = Math.random();
 			if (knightChance >= .75){
-				actions.setLabelText(actions.getLabelText() + "There is a cheese knight in here.");
+				actions.setLabelText((actions.getLabelText()).substring(0, (actions.getLabelText().length() - 7)) + "There is a cheese knight in here.</html>");
 			}
 			else {
-				actions.setLabelText(actions.getLabelText() + "There is a cheeseless in here.");
+				actions.setLabelText((actions.getLabelText()).substring(0, (actions.getLabelText().length() - 7)) + "There is a cheeseless in here.</html>");
 			}
 		}
 	}
