@@ -14,13 +14,21 @@ public class Game {
 	private String currentLocation;
 	private HashMap<String, ArrayList<String>> map;
 	private HashMap<String, String> description;
+
+	private HashMap<String, String> itemDescriptions;
 	private Actions actions;
 
-	public Game(Actions act) throws FileNotFoundException {
+	public Game(Actions act) throws FileNotFoundException{
 		//implement hashmaps here
-	/*	implementMap();
-		implementDescription();*/
+		//implementMap();
+		//implementDescription();
+		implementItemDescriptions();
 		currentLocation = "misnomer";
+		actions = act;
+	}
+	
+	public Actions getActions(){
+		return this.actions;
 	}
 	
 	public void implementMap() throws FileNotFoundException {
@@ -41,16 +49,31 @@ public class Game {
 	
 	public void implementDescription() throws FileNotFoundException {
 		description = new HashMap<String, String>();
-		Scanner in = new Scanner(new File("Descriptions"));
+
+		Scanner in = new Scanner(new File("RoomDescriptions"));
 		
 		while(in.hasNextLine()) {
 			String key = in.next();
 			String value = in.nextLine();
+			description.put(key, value);
+		}
+	}
+	
+	public void implementItemDescriptions() throws FileNotFoundException {
+		itemDescriptions = new HashMap<String, String>();
+		Scanner in = new Scanner(new File("ItemDescriptions"));
+		
+		while(in.hasNextLine()) {
+			String key = in.next();
+			String value = in.nextLine();
+			
+			itemDescriptions.put(key, value);
 		}
 	}
 
 	public void setCurrentLocation(String loc) {
 		currentLocation = loc;
+		actions.setLabelText(description.get(loc));
 	}
 
 	public String getCurrentLocation() {

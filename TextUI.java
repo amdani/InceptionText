@@ -10,13 +10,21 @@ import javax.swing.*;
 public class TextUI extends JFrame{	
 	
 	JLabel label;
+
+	JLabel health;
 	JTextField text;
 	Actions ctrl;
+	Player playa;
 	
 	public TextUI() throws FileNotFoundException {
-		
-		ctrl = new Actions();
-		
+		ctrl = new Actions(this);
+		playa = new Player(ctrl, this);
+	}
+	
+	
+	
+	public Player getPlayer() {
+		return playa;
 	}
 	
 	private void initialize() {
@@ -35,12 +43,18 @@ public class TextUI extends JFrame{
 		response.setVerticalAlignment(JLabel.TOP);
 		Font font = new Font("Times", Font.PLAIN, 30);
 		response.setFont(font);
-		response.setText("<html>South Park<br>You enter a T-shaped hall, named South Park, which smells atrocious. Behind the closed doors you hear male voices making idiotic jokes, and decide it's best to avoide them. There is a slighty opened door and inside the room you can see 15 cans of beer, an empty liqour bottle, and a big black dildo, it appears that no one is in the room. To the east is another hallway, and there is a staircase that leads both up and down.</html>");
+		response.setText("Enter your name");
 		c.gridx = 0;
 		c.gridy = 0;
 		c.weighty = 1;
 		pane.add(response, c);
 		ctrl.addLabel(response);
+		
+		//add JLabel
+		health = new JLabel();
+		String textLbl = "HP: " + playa.getHealth();
+		health.setText(textLbl);
+		
 		
 		// add JTextField
 		JTextField commandBox = new JTextField();
@@ -56,7 +70,7 @@ public class TextUI extends JFrame{
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		
+
 		TextUI app = new TextUI();
 		app.initialize();
 		app.setSize(new Dimension(1200, 900));

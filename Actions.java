@@ -19,9 +19,11 @@ public class Actions implements KeyListener {
 	private JLabel label;
 	private HashMap<String, Integer> keys;
 	private Game gameref;
+
+	private TextUI app;
 	
-	public Actions() throws FileNotFoundException{
-		
+	public Actions(TextUI text) throws FileNotFoundException{
+		app = text;
 		gameref = new Game(this);
 		
 		keys = new HashMap<String, Integer>();
@@ -34,7 +36,10 @@ public class Actions implements KeyListener {
 		}
 		in.close();
 		
-		
+	}
+	
+	public Game getGameRef() {
+		return this.gameref;
 	}
 	
 	public void addTextField(JTextField text){
@@ -46,10 +51,23 @@ public class Actions implements KeyListener {
 		label = labelRef;
 	}
 	
+	/**
+	 * I added this in, make sure it's in other methods.
+	 * @param text
+	 */
+	public void setLabelText(String text) {
+		label.setText(text);
+	}
+	
+	public void clearTextBox() {
+		text.setText("");
+	}
+	
 	public void getAction(){
-		
+		action = "";
 		for(String command : keys.keySet()){
 			if (input.contains(command)){
+				input = command;
 				action = command;
 			}
 		}
@@ -117,9 +135,47 @@ public class Actions implements KeyListener {
 		if(arg0.getKeyChar() == KeyEvent.VK_ENTER){
 			input = text.getText();
 			input.toLowerCase();
-			label.setText(input);
+			handleInput(input);
+			updateUI();
+			//include deleting text in text box
 		}
 		
+	}
+	
+	public void updateUI() {
+		clearTextBox();
+		
+	}
+	
+	public void handleInput(String input) {
+		getAction();
+		
+		if(input.contains("use")) { 
+			
+		}
+		else if(keys.containsKey(action)) { 
+			if(isDirection() || isClimb()) {
+				gameref.move(input);
+			}
+			else if(isSearch()) {
+				
+			}
+			else if(isItemCollection()) {
+				
+			}
+			else if(isFight()) {
+				
+			}
+			else if(isInventory()) {
+				app.getPlayer().getInventory();
+			}
+			else if(isDrink()) {
+				
+			}
+		}
+		else {
+			setLabelText("Command Not Recognized");
+		}
 	}
 
 	@Override
