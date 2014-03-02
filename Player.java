@@ -1,4 +1,4 @@
-package game;
+package Game;
 import java.util.*;
 /**
  * Creates object to keep track of players information
@@ -35,10 +35,11 @@ public class Player {
 	}
 
 	public void getInventory() {
-		String invent = "";
+		String invent = "<html>";
 		for(String key: inventory.keySet()) {
 			invent += key + "<br>";
 		}
+		invent += "</html>";
 
 		actions.setLabelText(invent);
 	}
