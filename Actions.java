@@ -1,4 +1,4 @@
-package Game;
+package game;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -66,6 +66,10 @@ public class Actions implements KeyListener {
 	public void setLabelText(String text) {
 		String tempText = "<html>" + text + "</html>";
 		label.setText(tempText);
+	}
+	
+	public String getLabelText(){
+		return label.getText();
 	}
 	
 	public void clearTextBox() {
@@ -156,6 +160,7 @@ public class Actions implements KeyListener {
 	public void updateUI() {
 		clearTextBox();
 		app.updateHealth();
+		gameref.enemy();
 	}
 	
 	public void handleInput(String input) {
